@@ -4,7 +4,7 @@ module.exports = {
     "dest": "docs/.vuepress/dist", // 打包后的文件存放路径
     // "base": "/blog/", // 打包后的静态资源的路径
     "port":5000,
-    theme: 'vuepress-theme-yilia-plus',
+    // theme: 'vuepress-theme-yilia-plus',
     // 网站的图标
     "head": [
       [
@@ -113,23 +113,23 @@ module.exports = {
     // "theme": "reco",
     // 导航栏/侧边栏配置，时间轴是自带的，只需要配置路由，link就是文档的路径。相当于vue中的路由
     "themeConfig": {
-      yilia_plus: {
-        // github-corner(关闭请设置为false)
-        // github: {
-        //   url: "https://github.com/JoeyBling/vuepress-theme-yilia-plus"
-        // },
-        // footer: {
-        //   // 网站成立年份(若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
-        //   since: 2018,
-        //   // 网站作者(关闭请设置为false)
-        //   author: '<a href="https://github.com/JoeyBling/" target="_blank">試毅-思伟</a>',
-        //   // 访问量统计功能(不蒜子)
-        //   busuanzi: {
-        //     // 是否启用(关闭请设置为false)
-        //     enable: true
-        //   }
-        // }
-      },
+      // yilia_plus: {
+      //   // github-corner(关闭请设置为false)
+      //   // github: {
+      //   //   url: "https://github.com/JoeyBling/vuepress-theme-yilia-plus"
+      //   // },
+      //   // footer: {
+      //   //   // 网站成立年份(若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
+      //   //   since: 2018,
+      //   //   // 网站作者(关闭请设置为false)
+      //   //   author: '<a href="https://github.com/JoeyBling/" target="_blank">試毅-思伟</a>',
+      //   //   // 访问量统计功能(不蒜子)
+      //   //   busuanzi: {
+      //   //     // 是否启用(关闭请设置为false)
+      //   //     enable: true
+      //   //   }
+      //   // }
+      // },
         smoothScroll: true,
       // 导航栏
       "nav": [
