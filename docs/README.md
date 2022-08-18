@@ -1,8 +1,8 @@
 ---
 home: true
-heroImage: /headbj.jpg
-heroText: Hero 标题
-tagline: Hero 副标题
+# heroImage: /headbj.jpg
+heroText: 继续向前走的博客
+tagline: 用blog记录生活
 actionText: 快速上手 →
 actionLink: /zh/guide/
 features:

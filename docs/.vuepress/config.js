@@ -4,7 +4,6 @@ module.exports = {
     "dest": "docs/.vuepress/dist", // 打包后的文件存放路径
     // "base": "/blog/", // 打包后的静态资源的路径
     "port":5000,
-    // theme: 'vuepress-theme-yilia-plus',
     // 网站的图标
     "head": [
       [
@@ -17,8 +16,9 @@ module.exports = {
     ],
     // 插件
     "plugins": [
-      ['@vuepress/blog'],
+      // [''],
       ['@vuepress-reco/vuepress-plugin-back-to-top'],
+      ['@vuepress-reco/vuepress-plugin-loading-page'],
       ['@vuepress/active-header-links', {
         sidebarLinkSelector: '.sidebar-link',
         headerAnchorSelector: '.header-anchor'
@@ -110,9 +110,10 @@ module.exports = {
     ],
     
     // 主题-reco
-    // "theme": "reco",
+    "theme": "reco", //aurora reco
     // 导航栏/侧边栏配置，时间轴是自带的，只需要配置路由，link就是文档的路径。相当于vue中的路由
     "themeConfig": {
+      darkMode:false,
       // yilia_plus: {
       //   // github-corner(关闭请设置为false)
       //   // github: {

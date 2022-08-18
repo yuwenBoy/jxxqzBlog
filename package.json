@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "gh-pages -d docs/.vuepress/dist",
-    "deploy:build": "npm run build && gh-pages -d docs/.vuepress/dist"
+    "deploy": "base deploy.sh",
+    "deploy:build": "npm run build && base deploy.sh"
   },
   "keywords": [],
   "author": "",
@@ -18,11 +18,14 @@
     "@vuepress/plugin-back-to-top": "^1.9.7",
     "@vuepress/plugin-blog": "^1.9.4",
     "gh-pages": "^4.0.0",
-    "vuepress": "^1.9.7"
+    "vuepress": "^1.9.7",
+    "vuepress-theme-aurora": "^1.13.4",
+    "vuepress-theme-reco": "^1.6.14"
   },
   "dependencies": {
     "@vuepress-reco/vuepress-plugin-back-to-top": "^1.6.13",
     "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4",
+    "@vuepress-reco/vuepress-plugin-loading-page": "^1.6.13",
     "@vuepress-reco/vuepress-plugin-screenfull": "^1.0.1",
     "@vuepress/theme-default": "^1.9.7",
     "async-validator": "^1.11.5",
