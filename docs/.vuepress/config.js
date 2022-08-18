@@ -64,15 +64,33 @@ module.exports = {
           audios: [
             // 网络文件示例
             {
-              name: '강남역 4번 출구',
-              artist: 'Plastic / Fallin` Dild',
-              url: 'https://assets.smallsunnyfox.com/music/2.mp3',
+              name: '终身美丽-纯音乐',
+              // artist: '终身美丽-纯音乐',
+              url: '/music/zsml.mp3',
               cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
             },
             {
-              name: '用胳膊当枕头',
-              artist: '최낙타',
-              url: 'https://assets.smallsunnyfox.com/music/3.mp3',
+              name: '庄心妍 - 好可惜 (DJ版)',
+              // artist: '최낙타',
+              url: '/music/haokexi.mp3',
+              cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+            },
+            {
+              name: '李宇春 - 和你一样',
+              // artist: '최낙타',
+              url: '/music/hnyy.mp3',
+              cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+            },
+            {
+              name: '杨千嬅 - 少女的祈祷 (2017三二一GO! 演唱会)',
+              // artist: '최낙타',
+              url: '/music/sndqf.mp3',
+              cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+            },
+            {
+              name: '张磊、朱强 - 车站 (Live)',
+              // artist: '최낙타',
+              url: '/music/chezhan.mp3',
               cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
             }
           ]  
