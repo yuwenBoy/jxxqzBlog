@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{291:function(t,n,s){"use strict";s.r(n);var e=s(0),o=Object(e.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("p",[this._v("::: theorem 继续向前走\n生命是一场善待自己的旅行。")])])}),[],!1,null,null,null);n.default=o.exports}}]);

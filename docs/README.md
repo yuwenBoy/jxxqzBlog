@@ -1,17 +1,6 @@
 ---
 home: true
 heroImage: /headbj.jpg
-heroImageStyle: {
-  maxWidth: '600px',
-  width: '100%',
-  display: block,
-  margin: '9rem auto 2rem',
-  background: '#fff',
-  borderRadius: '1rem',
-}
-bgImageStyle: {
-  height: '300px'
-}
 heroText: Hero 标题
 tagline: Hero 副标题
 actionText: 快速上手 →
