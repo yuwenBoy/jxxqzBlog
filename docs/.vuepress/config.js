@@ -1,9 +1,10 @@
 module.exports = {
-    "title": "继续向前走", // 网站标题
+    "title": "继续向前走的博客", // 网站标题
     "description": "生活不可能像你想象的那么好，但也不会像你想象的那么糟。", // 网站描述
     "dest": "docs/.vuepress/dist", // 打包后的文件存放路径
     // "base": "/blog/", // 打包后的静态资源的路径
     "port":5000,
+    theme: 'vuepress-theme-yilia-plus',
     // 网站的图标
     "head": [
       [
@@ -24,17 +25,29 @@ module.exports = {
       }],
       ['@vuepress-reco/vuepress-plugin-screenfull'],
       [
-        '@vuepress-reco/vuepress-plugin-kan-ban-niang',{
-          theme: [
-             'blackCat'
-          ],
-        //   clean: false,
-        //   messages: { 
-        //     welcome: '欢迎来到我的博客', home: '心里的花，我想要带你回家。', theme: '好吧，希望你能喜欢我的其他小伙伴。', close: '你不喜欢我了吗？痴痴地望着你。' 
-        //   },
-        //   messageStyle: { right: '68px', bottom: '290px' },
-        //   width: 250,
-        //   height: 320
+        'vuepress-plugin-helper-live2d', {
+          // 是否开启控制台日志打印(default: false)
+          log: false,
+          live2d: {
+            // 是否启用(关闭请设置为false)(default: true)
+            enable: true,
+            // 模型名称(default: hibiki)>>>取值请参考：
+            // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
+            model: 'hibiki',
+            display: {
+              position: "right", // 显示位置：left/right(default: 'right')
+              width: 135, // 模型的长度(default: 135)
+              height: 300, // 模型的高度(default: 300)
+              hOffset: 65, //  水平偏移(default: 65)
+              vOffset: 0, //  垂直偏移(default: 0)
+            },
+            mobile: {
+              show: false // 是否在移动设备上显示(default: false)
+            },
+            react: {
+              opacity: 0.8 // 模型透明度(default: 0.8)
+            }
+          }
         }
       ],
       [
@@ -49,13 +62,6 @@ module.exports = {
       [
         "@vuepress-reco/vuepress-plugin-bgm-player",{
           audios: [
-            // 本地文件示例
-            // {
-            //   name: '장가갈 수 있을까',
-            //   artist: '咖啡少年',
-            //   url: '/bgm/1.mp3',
-            //   cover: '/bgm/1.jpg'
-            // },
             // 网络文件示例
             {
               name: '강남역 4번 출구',
@@ -107,31 +113,39 @@ module.exports = {
     // "theme": "reco",
     // 导航栏/侧边栏配置，时间轴是自带的，只需要配置路由，link就是文档的路径。相当于vue中的路由
     "themeConfig": {
+      yilia_plus: {
+        // github-corner(关闭请设置为false)
+        // github: {
+        //   url: "https://github.com/JoeyBling/vuepress-theme-yilia-plus"
+        // },
+        // footer: {
+        //   // 网站成立年份(若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
+        //   since: 2018,
+        //   // 网站作者(关闭请设置为false)
+        //   author: '<a href="https://github.com/JoeyBling/" target="_blank">試毅-思伟</a>',
+        //   // 访问量统计功能(不蒜子)
+        //   busuanzi: {
+        //     // 是否启用(关闭请设置为false)
+        //     enable: true
+        //   }
+        // }
+      },
         smoothScroll: true,
       // 导航栏
       "nav": [
         {
-          "text": "主页",
+          "text": "首页",
           "link": "/",
           "icon": "reco-home"
         },
+        { text: 'Docs',
+                items: [
+                    { text: '英语', link: '/study/english/english01' },
+                    { text: '数学', link: '/study/math/math01' },
+                ]
+            },
         {
-          "text": "时间轴",
-          "link": "/timeline/",
-          "icon": "reco-date"
-        },
-        {
-          "text": "随笔",
-          "icon": "reco-document",
-          "link": "/theme-reco/theme-reco/"
-        },
-        {
-          "text": "留言板",
-          "icon": "reco-suggestion",
-          "link": "/theme-reco/message-board.md"
-        },
-        {
-          "text": "关于我",
+          "text": "分类",
           "icon": "reco-account",
           "items": [
             {
@@ -140,6 +154,37 @@ module.exports = {
             },
             {
               "text": "掘金",
+              "link": "",
+              "icon": "reco-juejin"
+            }
+          ]
+        },
+      
+        {
+          "text": "标签",
+          "icon": "reco-document",
+          "link": "/theme-reco/theme-reco/"
+        },
+        {
+          "text": "历史动态",
+          "link": "/timeline/",
+          "icon": "reco-date"
+        },
+        {
+          "text": "关于",
+          "icon": "reco-suggestion",
+          "link": "/article/about.md"
+        },
+        {
+          "text": "友情链接",
+          "icon": "reco-account",
+          "items": [
+            {
+              "text": "GitHub",
+              "link": "https://github.com/yuwenBoy",
+            },
+            {
+              "text": "CSDN",
               "link": "",
               "icon": "reco-juejin"
             }
@@ -154,6 +199,15 @@ module.exports = {
           "timer"
         ]
       },
+      sidebarDepth: 2,
+      lastUpdated: 'Last Updated',
+      searchMaxSuggestoins: 10,
+      serviceWorker: {
+          updatePopup: {
+              message: "有新的内容.",
+              buttonText: '更新'
+          }
+      },
       // 评论插件的配置
       vssueConfig: {
         platform: 'github',
@@ -163,8 +217,9 @@ module.exports = {
         clientSecret: 'YOUR_CLIENT_SECRET',
       },
       // 网站logo
-      "logo": "/logo.jpg",
+      // "logo": "/logo.jpg",
       // 是否开启搜索
       "search": true,
+
     }
   }

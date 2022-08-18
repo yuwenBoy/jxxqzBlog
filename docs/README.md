@@ -1,6 +1,17 @@
 ---
 home: true
-heroImage: /home.jpg
+heroImage: /headbj.jpg
+heroImageStyle: {
+  maxWidth: '600px',
+  width: '100%',
+  display: block,
+  margin: '9rem auto 2rem',
+  background: '#fff',
+  borderRadius: '1rem',
+}
+bgImageStyle: {
+  height: '300px'
+}
 heroText: Hero 标题
 tagline: Hero 副标题
 actionText: 快速上手 →
@@ -14,3 +25,5 @@ features:
   details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
+
+
