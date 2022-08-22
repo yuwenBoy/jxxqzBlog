@@ -1,28 +1,50 @@
+// const { loadingPage }  = require('@anyfork/vuepress-plugin-loading-page-next')
+const { rewardPlugin } = require('@vuepress-denaro/vuepress-plugin-reward')
+const {
+  smoothScrollPlugin,
+} = require('@vuepress-denaro/vuepress-plugin-smooth-scroll')
 module.exports = {
     "title": "继续向前走的博客", // 网站标题
     "description": "生活不可能像你想象的那么好，但也不会像你想象的那么糟。", // 网站描述
     "dest": "docs/.vuepress/dist", // 打包后的文件存放路径
     // "base": "/blog/", // 打包后的静态资源的路径
-    "port":5000,
+    "port":5001,
     // 网站的图标
     "head": [
       [
         "link",
         {
           "rel": "icon",
-          "href": "/logo.jpg"
+          "href": "/img/logo.jpg"
         }
       ]
     ],
+   
     // 插件
     "plugins": [
-      // [''],
       ['@vuepress-reco/vuepress-plugin-back-to-top'],
       ['@vuepress-reco/vuepress-plugin-loading-page'],
       ['@vuepress/active-header-links', {
         sidebarLinkSelector: '.sidebar-link',
         headerAnchorSelector: '.header-anchor'
       }],
+      // [ loadingPage() ],
+      [smoothScrollPlugin()],
+      [rewardPlugin({
+        btnText:'打赏',
+        title:'给作者赏一杯咖啡吧',
+        subTitle:'您的支持将是我继续更新下去的动力',
+        rewardOption:[
+          {
+            text: '微信',
+            url: '/WeChat.png', // ddd your picture to docs/.vuepress/public
+          },
+          {
+            text: '支付宝',
+            url: '/Alipay.png', // ddd your picture to docs/.vuepress/public
+          },
+        ],
+      }),]
       ['@vuepress-reco/vuepress-plugin-screenfull'],
       [
         'vuepress-plugin-helper-live2d', {
@@ -59,43 +81,49 @@ module.exports = {
           zIndex: 999999999           // z-index property of the canvas, default: 999999999
         }
       ],
-      [
-        "@vuepress-reco/vuepress-plugin-bgm-player",{
-          audios: [
-            // 网络文件示例
-            {
-              name: '终身美丽-纯音乐',
-              // artist: '终身美丽-纯音乐',
-              url: '/music/zsml.mp3',
-              cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
-            },
-            {
-              name: '庄心妍 - 好可惜 (DJ版)',
-              // artist: '최낙타',
-              url: '/music/haokexi.mp3',
-              cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
-            },
-            {
-              name: '李宇春 - 和你一样',
-              // artist: '최낙타',
-              url: '/music/hnyy.mp3',
-              cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
-            },
-            {
-              name: '杨千嬅 - 少女的祈祷 (2017三二一GO! 演唱会)',
-              // artist: '최낙타',
-              url: '/music/sndqf.mp3',
-              cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
-            },
-            {
-              name: '张磊、朱强 - 车站 (Live)',
-              // artist: '최낙타',
-              url: '/music/chezhan.mp3',
-              cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
-            }
-          ]  
-        }
-      ],
+      ["social-share"], // 分享
+      // [
+      //   "@vuepress-reco/vuepress-plugin-bgm-player",{
+      //     audios: [
+      //       // 网络文件示例
+      //       {
+      //         name: '终身美丽-纯音乐',
+      //         // artist: '终身美丽-纯音乐',
+      //         url: '/music/zsml.mp3',
+      //         cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
+      //       },
+      //       {
+      //         name: '庄心妍 - 好可惜 (DJ版)',
+      //         // artist: '최낙타',
+      //         url: '/music/haokexi.mp3',
+      //         cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+      //       },
+      //       {
+      //         name: '李宇春 - 和你一样',
+      //         // artist: '최낙타',
+      //         url: '/music/hnyy.mp3',
+      //         cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+      //       },
+      //       {
+      //         name: '杨千嬅 - 少女的祈祷 (2017三二一GO! 演唱会)',
+      //         // artist: '최낙타',
+      //         url: '/music/sndqf.mp3',
+      //         cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+      //       },
+      //       {
+      //         name: '张磊、朱强 - 车站 (Live)',
+      //         // artist: '최낙타',
+      //         url: '/music/chezhan.mp3',
+      //         cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+      //       }
+      //     ]  
+      //   }
+      // ],
+      ['vuepress-plugin-musicplayer', {
+        showAllRank: true, // 默认 false
+        baseUrl: 'https://netease-cloud-music-api-qqlcx5.vercel.app/', // 默认
+      }],
+      // ['autobar'],
       ["ribbon-animation", {
         size: 90,   // 默认数据
         opacity: 0.3,  //  透明度
@@ -125,31 +153,24 @@ module.exports = {
         ribbonShow: false, //  点击彩带  true显示  false为不显示
         ribbonAnimationShow: true  // 滑动彩带
       }],
+      [
+        "dynamic-title",
+        {
+          showIcon: "/favicon.ico",
+          showText: "(/≧▽≦/)咦！又好了！",
+          hideIcon: "/failure.ico",
+          hideText: "(●—●)喔哟，崩溃啦！",
+          recoverTime: 2000
+        }
+      ]
     ],
-    
+   
     // 主题-reco
     "theme": "reco", //aurora reco
     // 导航栏/侧边栏配置，时间轴是自带的，只需要配置路由，link就是文档的路径。相当于vue中的路由
     "themeConfig": {
-      darkMode:false,
-      // yilia_plus: {
-      //   // github-corner(关闭请设置为false)
-      //   // github: {
-      //   //   url: "https://github.com/JoeyBling/vuepress-theme-yilia-plus"
-      //   // },
-      //   // footer: {
-      //   //   // 网站成立年份(若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
-      //   //   since: 2018,
-      //   //   // 网站作者(关闭请设置为false)
-      //   //   author: '<a href="https://github.com/JoeyBling/" target="_blank">試毅-思伟</a>',
-      //   //   // 访问量统计功能(不蒜子)
-      //   //   busuanzi: {
-      //   //     // 是否启用(关闭请设置为false)
-      //   //     enable: true
-      //   //   }
-      //   // }
-      // },
-        smoothScroll: true,
+      darkMode:true,
+      smoothScroll: false,
       // 导航栏
       "nav": [
         {
@@ -157,32 +178,59 @@ module.exports = {
           "link": "/",
           "icon": "reco-home"
         },
-        { text: 'Docs',
-                items: [
-                    { text: '英语', link: '/study/english/english01' },
-                    { text: '数学', link: '/study/math/math01' },
+        { text: 'Docs',"icon":'reco-message',
+        items: [{ text: '前端',items:[{text:'JavaScript',link:'/views/JavaScript/'},
+               {text:'Vue3',link:''},
+               {text:'NodeJs',link:''},
+               {text:'CSS3&HTML5',link:'/views/CSS3&HTML5/'},
+               {text:'微信小程序',link:'/views/WeChat/'}]},
+               {text: '后端',items:[{text:'C#',link:''},
+               {text:'JAVA',link:''},
+               {text:'Python',link:''},
+               {text:'GoLang',link:''}]
+              },
+                    { text: '前沿技术',items:[{
+                      text:'微服务',
+                      link:'',
+                    },{
+                      text:'AI&大数据',
+                      link:'',
+                    },{
+                      text:'机器学习',
+                      link:'',
+                    }]},
+                    { text: '其他',items:[{
+                      text:'UI设计',
+                      link:'',
+                    },{
+                      text:'游戏开发',
+                      link:'',
+                    },{
+                      text:'随笔',
+                      link:'',
+                    }]}
                 ]
             },
         {
           "text": "分类",
-          "icon": "reco-account",
+          "icon": "reco-category",
           "items": [
             {
-              "text": "个人信息",
-              "link": "/article/about.md",
+              "text": "随笔",
+              "link": "",
+              // "icon": "reco-juejin"
             },
             {
-              "text": "掘金",
-              "link": "",
-              "icon": "reco-juejin"
-            }
+              "text": "JavaScript",
+              "link": "/views/JavaScript/",
+            },
           ]
         },
       
         {
           "text": "标签",
-          "icon": "reco-document",
-          "link": "/theme-reco/theme-reco/"
+          "icon": "reco-tag",
+          "link": "/views/tag/"
         },
         {
           "text": "历史动态",
@@ -191,23 +239,13 @@ module.exports = {
         },
         {
           "text": "关于",
-          "icon": "reco-suggestion",
-          "link": "/article/about.md"
+          "icon": "reco-account",
+          "link": "/views/Person/"
         },
         {
           "text": "友情链接",
-          "icon": "reco-account",
-          "items": [
-            {
-              "text": "GitHub",
-              "link": "https://github.com/yuwenBoy",
-            },
-            {
-              "text": "CSDN",
-              "link": "",
-              "icon": "reco-juejin"
-            }
-          ]
+          "icon": "reco-message",
+          "link": "https://github.com/yuwenBoy",
         }
       ],
       // 侧边栏，auto标识自动生成，每个文档都会根据标题生成目录，也可以自己配置
@@ -217,6 +255,12 @@ module.exports = {
           "",
           "timer"
         ]
+      },
+      markdown: {
+        lineNumbers: true,
+        toc: {
+          includeLevel: [1, 2, 3],
+        },
       },
       sidebarDepth: 2,
       lastUpdated: 'Last Updated',
@@ -239,6 +283,5 @@ module.exports = {
       // "logo": "/logo.jpg",
       // 是否开启搜索
       "search": true,
-
     }
   }
